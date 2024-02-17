@@ -31,16 +31,24 @@ public class QuartzTest {
                             .repeatForever())
                     .build();
 
+            Trigger trigger2 = TriggerBuilder.newTrigger()
+                    .withIdentity("trigger1", "group1")
+                    .startNow()
+                    .withSchedule(SimpleScheduleBuilder.simpleSchedule()
+                            .withIntervalInSeconds(5)
+                            .repeatForever())
+                    .build();
+
+            System.out.println("线程个数 : "+scheduler.getMetaData().getThreadPoolSize());
+
             // Tell quartz to schedule the job using our trigger
             scheduler.scheduleJob(job, trigger);
             // 0 5 10 15 20
-            TimeUnit.SECONDS.sleep(20);
+//            TimeUnit.SECONDS.sleep(20);
             scheduler.shutdown();
 
         } catch (SchedulerException se) {
             se.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 }
