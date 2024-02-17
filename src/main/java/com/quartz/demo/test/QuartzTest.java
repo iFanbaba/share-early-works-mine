@@ -1,5 +1,6 @@
 package com.quartz.demo.test;
 
+import com.quartz.demo.job.HelloJob;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 import org.springframework.scheduling.support.CronTrigger;

@@ -1,5 +1,6 @@
-package com.quartz.demo.test;
+package com.quartz.demo.job;
 
+import com.quartz.demo.test.DFUtil;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
